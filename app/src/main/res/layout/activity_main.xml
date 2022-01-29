@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone"
+        >
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="계산 중 입니다..."
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+
+    </LinearLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BMI 계산기"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="40dp"
+            android:textSize="50dp"/>
+
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/heightTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="키"
+            app:layout_constraintEnd_toStartOf="@id/heightEditText"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:layout_marginTop="170dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="50sp"/>
+
+        <EditText
+            android:id="@+id/heightEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="키를 입력해 주세요"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:inputType="number"
+            app:layout_constraintTop_toTopOf="@id/heightTextView"
+            app:layout_constraintStart_toEndOf="@id/heightTextView"
+            app:layout_constraintBottom_toBottomOf="@id/heightTextView"
+            app:layout_constraintEnd_toEndOf="@id/cmTextView"
+            />
+
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/cmTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/heightEditText"
+            app:layout_constraintStart_toEndOf="@id/heightEditText"
+            app:layout_constraintBottom_toBottomOf="@id/heightEditText"
+            android:text="CM"
+            android:textSize="30sp"/>
+
+
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/weightTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/heightTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="체중"
+            app:layout_constraintEnd_toStartOf="@id/weightEditText"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="40sp"/>
+
+        <EditText
+            android:id="@+id/weightEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="체중을 입력해 주세요"
+            android:textSize="20sp"
+            android:inputType="number"
+            app:layout_constraintTop_toTopOf="@id/weightTextView"
+            app:layout_constraintStart_toEndOf="@id/weightTextView"
+            app:layout_constraintBottom_toBottomOf="@id/weightTextView"
+            app:layout_constraintEnd_toEndOf="@id/KGTextView"
+            />
+
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/KGTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/weightEditText"
+            app:layout_constraintStart_toEndOf="@id/weightEditText"
+            app:layout_constraintBottom_toBottomOf="@id/weightEditText"
+            android:text="KG"
+            android:textSize="30sp"/>
+
+        <Button
+            android:id="@+id/calculateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="계산하기"
+            app:layout_constraintTop_toBottomOf="@id/weightEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="30sp"
+            android:layout_marginTop="100dp"/>
+
+        <Button
+            android:id="@+id/recordButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="기록 보기"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="20dp"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/recordLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"
+        >
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/myrecord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="내 기록"
+            android:textColor="@color/black"
+            android:textSize="40sp"/>
+
+        <Button
+            android:id="@+id/closeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="닫기"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="15dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/myrecord"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
